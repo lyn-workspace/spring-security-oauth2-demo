@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author luyanan
@@ -79,10 +80,11 @@ public class UserController {
      * @author luyanan
      * @since 2020/7/22
      */
+    @ResponseBody
     @GetMapping("info")
     public String info() {
         Object name = httpSession.getAttribute("name");
-        return name + ":访问info";
+        return Optional.ofNullable(name).orElse("匿名") + ":访问info";
     }
 
 
@@ -94,6 +96,7 @@ public class UserController {
      * @since 2020/7/22
      */
 
+    @ResponseBody
     @GetMapping("logout")
     public void logout() {
         httpSession.invalidate();
