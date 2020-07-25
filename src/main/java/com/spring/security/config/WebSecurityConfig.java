@@ -22,14 +22,14 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // 配置用户信息
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("zhangsan").password("123456").authorities("p1").build());
-        manager.createUser(User.withUsername("lisi").password("123456").authorities("p2").build());
-        return manager;
-    }
+//    // 配置用户信息
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(User.withUsername("zhangsan").password("$2a$10$Z0lpyLYr3DYWdpRQPr3i5eVx3Q1LolIz7QUDCcq5aFePUh5IahaEa").authorities("p1").build());
+//        manager.createUser(User.withUsername("lisi").password("$2a$10$Z0lpyLYr3DYWdpRQPr3i5eVx3Q1LolIz7QUDCcq5aFePUh5IahaEa").authorities("p2").build());
+//        return manager;
+//    }
 
 
 //    // 密码编码器
@@ -49,15 +49,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
+        http
+                .csrf().disable() // //屏蔽CSRF控制，即spring security不再限制CSRF
 
-                //访问/r/r1资源的 url需要拥有p1权限。
-                .antMatchers("/r/r1").hasAuthority("p1")
-                //访问/r/r2资源的 url需要拥有p2权限。
-                .antMatchers("/r/r2").hasAuthority("p2")
+
+                .authorizeRequests()
+
+//                //访问/r/r1资源的 url需要拥有p1权限。
+//                .antMatchers("/r/r1").hasAuthority("p1")
+//                //访问/r/r2资源的 url需要拥有p2权限。
+//                .antMatchers("/r/r2").hasAuthority("p2")
                 .antMatchers("/r/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin().successForwardUrl("/login‐success");
+                .formLogin()  // (1)
+                .loginPage("/login-html")  // (2)
+                .loginProcessingUrl("/login")  // (3)
+                .successForwardUrl("/login‐success") // (4)
+                .permitAll(); // (5)
     }
 }

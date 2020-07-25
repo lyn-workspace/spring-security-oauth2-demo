@@ -1,5 +1,6 @@
 package com.spring.security;
 
+import org.junit.Test;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 /**

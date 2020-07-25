@@ -19,6 +19,6 @@ public class ConsumerUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
         // 这里使用静态数据
-        return User.withUsername("zhangsan").password("123456").authorities("p1").build();
+        return User.withUsername("zhangsan").password("$2a$10$Z0lpyLYr3DYWdpRQPr3i5eVx3Q1LolIz7QUDCcq5aFePUh5IahaEa").authorities("p1").build();
     }
 }

@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoginController {
 
 
+    @GetMapping("/login-html")
+    public String login() {
+
+        return "login";
+    }
+
     @ResponseBody
     @GetMapping("/r/r1")
     public String r1() {
