@@ -5,12 +5,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author luyanan
@@ -49,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+
         http
                 .csrf().disable() // //屏蔽CSRF控制，即spring security不再限制CSRF
 
@@ -66,6 +73,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login-html")  // (2)
                 .loginProcessingUrl("/login")  // (3)
                 .successForwardUrl("/login‐success") // (4)
-                .permitAll(); // (5)
+                .permitAll()
+                .and()
+                .logout()    // (1)
+                .logoutSuccessUrl("/login-html?logout") // (2)
+                .addLogoutHandler(new LogoutHandler() {// (3)
+                    @Override
+                    public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) {
+
+                    }
+                })
+                .logoutUrl("/logout")  // (4)
+                .addLogoutHandler(new LogoutHandler() { // (5)
+                    @Override
+                    public void logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) {
+
+                    }
+                }).invalidateHttpSession(true); // (6)
     }
 }

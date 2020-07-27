@@ -1,6 +1,16 @@
 spring:
   application:
     name: session
-
-
-
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-security-oauth2-demo?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true&useSSL=false&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: rootroot
+  session:
+    timeout: 3600s
+server:
+  servlet:
+    session:
+      timeout: 3600s
+      cookie:
+        http-only: true
+        secure: true
