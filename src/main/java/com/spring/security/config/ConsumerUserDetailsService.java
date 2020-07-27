@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author luyanan
  * @since 2020/7/24
@@ -30,9 +32,14 @@ public class ConsumerUserDetailsService implements UserDetailsService {
         if (null == userEntity) {
             return null;
         }
+        List<String> permission = userDao.findPermissionByUserId(userEntity.getId());
 
         UserDetails userDetails =
-                User.withUsername(userEntity.getFullname()).password(userEntity.getPassword()).authorities("p1").build();
+                User
+                        .withUsername(userEntity.getFullname())
+                        .password(userEntity.getPassword())
+                        .authorities(permission.toArray(new String[permission.size()]))
+                        .build();
         return userDetails;
     }
 
