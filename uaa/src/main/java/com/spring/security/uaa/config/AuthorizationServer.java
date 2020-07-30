@@ -82,17 +82,18 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-        clients.inMemory()  // 使用内存进行存储
-                .withClient("c1") // client_id
-                .secret(new BCryptPasswordEncoder().encode("secret")) //秘钥
-                .resourceIds("res1") // 资源id
+// clients.withClientDetails(clientDetailsService);
+        clients.inMemory()// 使用in‐memory存储
+                .withClient("c1")// client_id
+                .secret(new BCryptPasswordEncoder().encode("secret"))
+                .resourceIds("res1")
                 .authorizedGrantTypes("authorization_code",
-                        "password", "client_credentials",
-                        "implicit", "refresh_token") // 该client允许的授权类型
-                .scopes("all") // 允许授权的范围
-                .autoApprove(true)
-                // 验证回调地址
-                .redirectUris("http://baidu.com");
+                        "password", "client_credentials", "implicit", "refresh_token")// 该client允许的授权类型 authorization_code,password,refresh_token,implicit,client_credentials
+                .scopes("all")// 允许的授权范围
+                .autoApprove(false)
+//加上验证回调地址
+                .redirectUris("http://www.baidu.com");
+
     }
 
 
