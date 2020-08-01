@@ -22,6 +22,8 @@
 ### spring-security-oauth-jwt
 基于`jwt`简单实现`Spring Security Oauth2.0`的认证授权
 
+### `master` 分支
+ 基于注册中心和网关的分布式认证授权中心实现
 
 git源码地址: https://github.com/lyn-workspace/spring-security-oauth2-demo
 

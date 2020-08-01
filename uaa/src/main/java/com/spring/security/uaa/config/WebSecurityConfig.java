@@ -1,6 +1,8 @@
 package com.spring.security.uaa.config;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.spring.security.uaa.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,13 +32,6 @@ import java.util.List;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails zhangsan = User.withUsername("zhangsan").password(passwordEncoder().encode("123")).authorities("p1").build();
-        UserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
-        userDetailsManager.createUser(zhangsan);
-        return userDetailsManager;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -56,8 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/r/r1").hasAnyAuthority("p1")
-                .antMatchers("/r/r2").hasAnyAuthority("p2")
+
                 .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin();

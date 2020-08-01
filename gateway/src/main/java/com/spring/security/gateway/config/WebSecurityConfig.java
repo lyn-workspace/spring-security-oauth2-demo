@@ -1,4 +1,4 @@
-package com.spring.security.order.config;
+package com.spring.security.gateway.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -19,9 +19,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
+
+        http
                 .authorizeRequests()
-                .antMatchers("/**").authenticated()// 所有r/**的请求都必须通过认证
-                .anyRequest().permitAll(); // 除了r/r** 之外的请求都放行
+                .antMatchers("/**")
+                .permitAll()
+                .and()
+                .csrf()
+                .disable();
     }
 }

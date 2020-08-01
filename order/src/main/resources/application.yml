@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8001
   tomcat:
     remote-ip-header: x‐forwarded‐for
     protocol-header: x‐forwarded‐proto
@@ -27,6 +27,18 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8002/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
 
 
 feign:
@@ -42,4 +54,5 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
+
 
