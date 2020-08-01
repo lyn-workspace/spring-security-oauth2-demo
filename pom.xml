@@ -72,6 +72,8 @@
     <!--子模块 -->
 
     <modules>
+        <module>eureka</module>
+        <module>gateway</module>
         <module>uaa</module>
         <module>order</module>
 
