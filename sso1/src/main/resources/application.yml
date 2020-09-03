@@ -1,6 +1,16 @@
+server:
+  port: 8001
+  tomcat:
+    remote-ip-header: x‐forwarded‐for
+    protocol-header: x‐forwarded‐proto
+  use-forward-headers: true
+  servlet:
+    context-path: /sso1
+
+
 spring:
   application:
-    name: uaa
+    name: sso1
   main:
     allow-bean-definition-overriding: true
   http:
@@ -17,6 +27,12 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8002/eureka/
+  instance:
+    prefer-ip-address: true
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -26,31 +42,21 @@ spring:
     servlet:
       content-type: text/html
     check-template: true
+security:
+  oauth2:
+    client:
+      clientId: test_client
+      clientSecret: test_client
+      accessTokenUri: http://localhost:8000/auth/oauth/token
+      userAuthorizationUri: http://localhost:8000/auth/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:8000/auth/user
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
 
-server:
-  port: 8000
-  tomcat:
-    remote-ip-header: x‐forwarded‐for
-    protocol-header: x‐forwarded‐proto
-  use-forward-headers: true
-  servlet:
-    context-path: /uaa
-
-
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8002/eureka/
-  instance:
-    prefer-ip-address: true
-
-
-
-
-logging:
-  level:
-    root: info
 
 feign:
   hystrix:
@@ -65,3 +71,5 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
+
+

@@ -27,3 +27,4 @@
 
 git源码地址: https://github.com/lyn-workspace/spring-security-oauth2-demo
 
+https://gitee.com/RainbowManChow/SpringCloudAndSecurityOauth2.0WithSSO.git
