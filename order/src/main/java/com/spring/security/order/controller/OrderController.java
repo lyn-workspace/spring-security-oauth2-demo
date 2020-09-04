@@ -1,6 +1,7 @@
 package com.spring.security.order.controller;
 
 import com.spring.security.order.entity.UserEntity;
+import com.spring.security.order.utils.SecurityUtils;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,7 @@ public class OrderController {
     @GetMapping("r1")
     @PreAuthorize("hasAnyAuthority('p1')")
     public String r1() {
-        UserEntity userEntity = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userEntity.getId() + ":访问r1资源";
+        return SecurityUtils.getUser().getId() + ":访问r1资源";
     }
 
     @GetMapping("r2")
