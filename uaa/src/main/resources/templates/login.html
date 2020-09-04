@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- topspeed -->
+    <meta name="renderer" content="webkit" />
+    <title>登录</title>
+    <!-- icon -->
+    <link rel="shortcut icon" href="http://www.qcterp.com/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="http://www.qcterp.com/favicon.ico" type="image/vnd.microsoft.icon" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- iconfont -->
+    <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_662540_9xu37zt49sd.css" />
+    <!-- secondSheet.css -->
+    <link rel="stylesheet" type="text/css" href="css/secondSheet.css" />
+</head>
+
+<body>
+<!-- 导航条 -->
+<header class="navabr navbar-default navbar-fixed-top header">
+    <div class="container header_con">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html"> <img src="images/logo.png" /> </a>
+        </div>
+        <div class="gw"><a href="">全城淘官网</a></div>
+    </div>
+</header>
+
+<main class="L-main">
+    <div id="slideShow" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators indicators_list">
+            <li data-target="#slideShow" data-slide-to="0" class="active"></li>
+            <li data-target="#slideShow" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item item1 carousel-item active">
+                <img class="carousel-img" src="images/banner1.jpg" alt="" />
+            </div>
+            <div class="item item2 carousel-item">
+                <img class="carousel-img" src="images/banner2.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+    <section class="main-in">
+        <div id="L-merchant-list">
+            <ul class="L-main-title">
+                <li class="L-merchant active">密码登录</li>
+                <li class="L-organization">短信登录</li>
+            </ul>
+            <form id="L-merchant-list1" class="Merchant_center_login" action="" method="post">
+                <div class="L-main-menu L-main-menu1">
+                    <!-- 商户名 matname -->
+                    <div class="form-group L-input-wrapper matname">
+                        <label class="sr-only" for="matname-inp">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-shouye"></i></div>
+                            <input type="text" class="form-control control-inp" id="matname-inp" data-hint="商户名格式错误"
+                                   name="matname" placeholder="请输入商户号" />
+                        </div>
+                    </div>
+                    <!-- 用户名 petname -->
+                    <div class="form-group L-input-wrapper petname">
+                        <label class="sr-only" for="petname-inp">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-zhanghao2"></i></div>
+                            <input type="text" class="form-control control-inp" id="petname-inp" data-hint="用户名/工号/手机号格式错误"
+                                   name="petname" placeholder="请输入用户名/工号/手机号" />
+                        </div>
+                    </div>
+                    <!-- 密码 password -->
+                    <div class="form-group L-input-wrapper password">
+                        <label class="sr-only" for="password-inp">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-shouye"></i></div>
+                            <input type="password" class="form-control control-inp" id="password-inp" data-hint="密码格式错误"
+                                   name="password" placeholder="请输入登录密码" />
+                        </div>
+                    </div>
+                    <!-- 滑块验证 -->
+                    <div class="verify">
+                        <div class="verify_box">
+                            <div class="verify_xbox">
+                                <div class="verify_btn">
+                                    <img src="images/lllllll.png" />
+                                </div>
+                            </div>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按住滑块，拖动到最右边
+                        </div>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <input type="submit" class="btn btn-primary form-control sign_in" id="sign_in1" value="登 录" />
+                    <span class="sign_up">去注册</span>
+                    <div class="L-error L-error1">
+                        <i class="iconfont icon-gantanhao01"></i>&#x3000;<span>商户名、用户名或密码错误！</span>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                </div>
+            </form>
+
+            <form id="L-merchant-list2" class="Merchant_center_login" action="" method="post">
+                <div class="L-main-menu L-main-menu2">
+                    <!-- 手机号 -->
+                    <div class="form-group L-input-wrapper mobile">
+                        <label class="sr-only" for="mobile-inp">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-shoujihao"></i></div>
+                            <input type="text" class="form-control control-inp" data-hint="手机号格式错误" name="mobile"
+                                   placeholder="请输入手机号" />
+                        </div>
+                    </div>
+                    <!-- 手机验证码 -->
+                    <div class="form-group L-input-wrapper CAPTCHA">
+                        <label class="sr-only" for="CAPTCHA-inp1">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-ecurityCode"></i></div>
+                            <input type="text" class="form-control control-inp" id="CAPTCHA-inp1" data-hint="验证码错误"
+                                   name="CAPTCHA" placeholder="请输入验证码" />
+                            <button type="button" class="CAPTCHA-btn btn btn-default" data-send="1">获取验证码</button>
+                        </div>
+                    </div>
+                    <!-- 商户名 matname -->
+                    <div class="form-group matname">
+                        <select name="" class="operationScope">
+                            <option value="请选择您的经营领域" selected>请选择您的经营领域</option>
+                            <option value="餐饮外卖">餐饮外卖</option>
+                            <option value="商超便利">商超便利</option>
+                            <option value="鞋服箱包">鞋服箱包</option>
+                            <option value="足浴按摩">足浴按摩</option>
+                            <option value="酒吧会所">酒吧会所</option>
+                        </select>
+                    </div>
+                    <!-- 滑块验证 -->
+                    <div class="verify">
+                        <div class="verify_box">
+                            <div class="verify_xbox">
+                                <div class="verify_btn">
+                                    <img src="images/lllllll.png" />
+                                </div>
+                            </div>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按住滑块，拖动到最右边
+                        </div>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <input type="submit" class="btn btn-primary form-control sign_in" id="sign_in2" value="登 录" />
+                    <span class="sign_up">去注册</span>
+                    <div class="L-error L-error2">
+                        <i class="iconfont icon-gantanhao01"></i><span>&#x3000;手机号或验证码错误！</span>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="R-merchant-list">
+            <ul class="R-main-title">
+                <li class="R-merchant active">新用户注册</li>
+            </ul>
+            <form id="R-merchant-list1" class="Merchant_center_login" action="" method="post">
+                <div class="L-main-menu">
+                    <!-- 商户名 matname -->
+                    <div class="form-group matname">
+                        <select name="" class="operationScope">
+                            <option value="请选择您的经营领域" selected>请选择您的经营领域</option>
+                            <option value="餐饮外卖">餐饮外卖</option>
+                            <option value="商超便利">商超便利</option>
+                            <option value="鞋服箱包">鞋服箱包</option>
+                            <option value="足浴按摩">足浴按摩</option>
+                            <option value="酒吧会所">酒吧会所</option>
+                        </select>
+                    </div>
+                    <!-- 用户名 petname -->
+                    <div class="form-group R-input-wrapper petname">
+                        <input type="text" class="form-control control-inp" name="register-petname" data-hint="用户名/工号/手机号格式错误"
+                               placeholder="请输入用户名/工号/手机号" />
+                    </div>
+                    <!-- 用户名 petname -->
+                    <div class="form-group R-input-wrapper subject">
+                        <input type="text" class="form-control control-inp" name="register-subject" data-hint="主体格式错误"
+                               placeholder="请输入主体全称" />
+                    </div>
+                    <!-- 密码 password -->
+                    <div class="form-group R-input-wrapper password">
+                        <input type="password" class="form-control control-inp" name="register-password" data-hint="密码格式错误"
+                               placeholder="请输入登录密码" />
+                    </div>
+                    <!-- 提交按钮 -->
+                    <input type="submit" class="btn btn-primary form-control sign_in next_in" id="sign_up1" value="下一步" />
+                    <div class="form-checkbox">
+                        <label class="checkbox_label">
+                            <input type="checkbox" id="R-remember1" class="R-remember" name="remember1" />
+                            <label for="R-remember1"></label>&#x3000;&#x3000;我同意
+                            <a class="agreement" data-toggle="modal" data-target=".bs-example-modal-lg1">《用户注册协议》</a>和
+                            <a class="agreement" data-toggle="modal" data-target=".bs-example-modal-lg2">《用户隐私协议》</a>
+                        </label>
+                        <span class="Existing">已有账号</span>
+                    </div>
+                    <div class="L-error R-error1">
+                        <i class="iconfont icon-gantanhao01"></i>&#x3000;<span>商户名、用户名或密码错误！</span>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                </div>
+            </form>
+
+            <form id="R-merchant-list2" class="Merchant_center_login" action="" method="post">
+                <div class="L-main-menu L-main-menu2">
+                    <!-- 手机号 -->
+                    <div class="form-group R-input-wrapper mobile">
+                        <label class="sr-only" for="mobile-inp">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-shoujihao"></i></div>
+                            <input type="text" class="form-control control-inp" name="mobile" placeholder="请输入手机号" />
+                        </div>
+                    </div>
+                    <!-- 手机验证码 -->
+                    <div class="form-group R-input-wrapper CAPTCHA">
+                        <label class="sr-only" for="CAPTCHA-inp2">Amount (in dollars)</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-ecurityCode"></i></div>
+                            <input type="text" class="form-control control-inp" id="CAPTCHA-inp2" name="CAPTCHA"
+                                   placeholder="请输入验证码" />
+                            <button type="button" class="CAPTCHA-btn btn btn-default" data-send="1">获取验证码</button>
+                        </div>
+                    </div>
+                    <!-- 滑块验证 -->
+                    <div class="verify">
+                        <div class="verify_box">
+                            <div class="verify_xbox">
+                                <div class="verify_btn">
+                                    <img src="images/lllllll.png" />
+                                </div>
+                            </div>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;按住滑块，拖动到最右边
+                        </div>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <input type="submit" class="btn btn-primary form-control sign_in" id="sign_up2" value="注册" />
+                    <div class="L-error R-error2">
+                        <i class="iconfont icon-gantanhao01"></i><span>&#x3000;手机号或验证码错误！</span>
+                        <i class="iconfont icon-xiangyou"></i>
+                    </div>
+                </div>
+            </form>
+
+            <!-- 协议遮罩层 -->
+            <!-- 全城淘软件服务协议 -->
+            <section class="agreement_modal">
+                <!-- Large modal -->
+                <!--
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+                -->
+                <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content modal-contents">
+                            <h3 class="agreement_title">
+                                全城淘用户注册协议
+                                <button type="button" class="close agreement_close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </h3>
+                            <p class="effective_date">版本生效日期：2018年5月4日</p>
+                            <div class="agreement_content">
+                                <p>
+                                <div>
+                                    <div>
+                                        一、合同适用说明 1.本合同适用于首次购买XX产品及购买XX服务产品的用户。
+                                    </div>
+                                    <div>
+                                        2.甲乙双方签订本合同，表明甲方接受乙方所提供的标准服务；否则，视为甲方主动放弃乙方所提供的服务。
+                                    </div>
+                                    <div>
+                                        二、服务内容 1.乙方提供的服务内容：
+                                    </div>
+                                    <div>
+                                        1）品标准培训：乙方负责承担甲方所购买产品的标准培训；标准培训为指导建账和为期四个工作小时的业务指导。
+                                    </div>
+                                    <div>
+                                        2）热线支持：指乙方服务人员通过电话向用户提供技术问题解答的过程。
+                                    </div>
+                                    <div>
+                                        3）在线服务支持：指乙方通过在线支持系统接收、解答用户问题，并在网上发布相关技术解决问题的过程。
+                                    </div>
+                                    <div>
+                                        4）现场维护：指乙方派遣技术人员到用户现场处理问题的过程。
+                                    </div>
+                                    <div>
+                                        5）远程维护：指乙方通过《XX维护软件》解答用户问题的服务过程。
+                                    </div>
+                                    <div>
+                                        6）用户俱乐部活动：甲方可以参加XX用户俱乐部的活动。
+                                    </div>
+                                    <div>
+                                        7）用户刊物：甲方可以不定期的获取乙方提供的用户刊物，用户刊物包括出版的刊物和电子刊物。
+                                    </div>
+                                    <div>
+                                        2、乙方的服务承诺：
+                                    </div>
+                                    <div>
+                                        1）乙方接到甲方通过电话、信函传真、电子邮件、网上提交等方式提出关于XX软件的服务请求后，在两个有效工作日内给予响应并提供服务。
+                                    </div>
+                                    <div>
+                                        2）乙方提供给甲方的服务，必须按照合同规定的服务内容进行。 三、甲方责任：
+                                    </div>
+                                    <div>
+                                        1.甲方应确保有专人对xx软件的使用和管理负责。
+                                    </div>
+                                    <div>
+                                        2.甲方应建立相关制度，以确保xx软件运行环境（包括计算机、打印机及相关硬件设备）
+                                    </div>
+                                    <div>
+                                        3.甲方定期做好系统数据备份，并对备份数据进行妥善保管。
+                                    </div>
+                                    <div>
+                                        4.甲方在应用过程中发现软件出现异常，应及时与甲方取得联系，并记录当前故障现象，便于乙方作出诊断。
+                                    </div>
+                                    <div>
+                                        5.甲方在乙方服务人员服务完成后，配合检查软件系统运行是否正常。 四、违约处理 1.乙方违争取处理：
+                                    </div>
+                                    <div>
+                                        1）甲方有权对乙方不履行合同条款的行为向XX公司服务管理部门投诉；XX公司服务投诉电话：XXXXXXXX
+                                    </div>
+                                    <div>
+                                        2）乙方违反以上服务承诺时，在接到甲方投诉后，维护部门立即采取补救措施，并给用户满意答复。
+                                    </div>
+                                    <div>
+                                        3）乙方在确认违反了服务承诺，并给甲方造成实际损失，应该给甲方以适当的经济补偿。 2.甲方违约处理
+                                    </div>
+                                    <div>
+                                        1）甲方没有按照合同要求履行甲方应承担的责任，甲方应该承担由此带来的相关后果。
+                                    </div>
+                                    <div>
+                                        2）因甲方法人员进行非法操作、感染病毒、配件出现故障导致的数据混乱、丢失等问题，甲方请求乙方提供服务的，乙方可以按照软件服务费的100%，加收服务费。
+                                    </div>
+                                    <div>
+                                        3.乙方免责条款
+                                    </div>
+                                    <div>
+                                        1）乙方不承担因甲方人员进行非法操作、感染病毒、硬件出现故障导致的数据混乱乱、丢失责任。
+                                    </div>
+                                    <div>
+                                        2）乙方有权拒绝甲方提出的合同规定之外的服务请求。 五、合同有效期和效用性
+                                    </div>
+                                    <div>
+                                        1.本合同须双方签字并加盖公章或合同章生效；本合同一式两份，双方各执一份，具有同等法律效力
+                                    </div>
+                                    <div>
+                                        2.本合同的有效性不因双方代表的职务变换、工作变更、工作调动等情况而受任何影响；本合同的有效性不因双方法人的变更而受任何影响；本合同的有效性不因双方单位名称的改变而受任何影响。
+                                    </div>
+                                    <div>
+                                        六、收费办法和合同期限 1.购买XX版、XX版）大写：_______________.
+                                    </div>
+                                    <div>
+                                        2.合同有效期限为一年，自___年__月__日至___年__月__日止，合同期满自动中止。
+                                    </div>
+                                    <div>
+                                        3.合同期满后，双方协商，乙方可以继续为甲方提供用友软件运行维护服务；但双方必须重新签署新的服务合同。
+                                    </div>
+                                    <div>
+                                        七、争议处理
+                                    </div>
+                                    <div>
+                                        1.甲乙双方如对协议条款规定的理解有异议，或者对与协议有关的事项发生争议，双方应本着友好合作的精神进行协商。
+                                    </div>
+                                    <div>
+                                        2.协商不能解决的，依照《中华人民共和国合同法》，任何一方可向乙方所在地的人民法院起诉。 八、其他
+                                    </div>
+                                    <div>
+                                        1.本合同未尽事宜，由甲乙双方协商后产生书面文件，作为本合同的补充条款，具备与本合同同等法律效力。
+                                    </div>
+                                    <div>
+                                        2.对本合同内容的任何修改和变更需要用书面形式，并经双方确认后生效。
+                                    </div>
+                                    <div>
+                                        3.本合同为双方唯一的正式协议，其他任何方案、口头说明及与本项目有关的信函、传真、邮件等，均以本合同为准。
+                                    </div>
+                                </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 协议遮罩层 -->
+            <!-- 全城淘软件服务协议 -->
+            <section class="agreement_modal">
+                <!-- Large modal -->
+                <!--
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+                -->
+                <div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content modal-contents">
+                            <h3 class="agreement_title">
+                                全城淘用户隐私协议
+                                <button type="button" class="close agreement_close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </h3>
+                            <p class="effective_date">版本生效日期：2018年5月4日</p>
+                            <div class="agreement_content">
+                                <p>
+                                <div>
+                                    <div>
+                                        一、合同适用说明 1.本合同适用于首次购买XX产品及购买XX服务产品的用户。
+                                    </div>
+                                    <div>
+                                        2.甲乙双方签订本合同，表明甲方接受乙方所提供的标准服务；否则，视为甲方主动放弃乙方所提供的服务。
+                                    </div>
+                                    <div>
+                                        二、服务内容 1.乙方提供的服务内容：
+                                    </div>
+                                    <div>
+                                        1）品标准培训：乙方负责承担甲方所购买产品的标准培训；标准培训为指导建账和为期四个工作小时的业务指导。
+                                    </div>
+                                    <div>
+                                        2）热线支持：指乙方服务人员通过电话向用户提供技术问题解答的过程。
+                                    </div>
+                                    <div>
+                                        3）在线服务支持：指乙方通过在线支持系统接收、解答用户问题，并在网上发布相关技术解决问题的过程。
+                                    </div>
+                                    <div>
+                                        4）现场维护：指乙方派遣技术人员到用户现场处理问题的过程。
+                                    </div>
+                                    <div>
+                                        5）远程维护：指乙方通过《XX维护软件》解答用户问题的服务过程。
+                                    </div>
+                                    <div>
+                                        6）用户俱乐部活动：甲方可以参加XX用户俱乐部的活动。
+                                    </div>
+                                    <div>
+                                        7）用户刊物：甲方可以不定期的获取乙方提供的用户刊物，用户刊物包括出版的刊物和电子刊物。
+                                    </div>
+                                    <div>
+                                        2、乙方的服务承诺：
+                                    </div>
+                                    <div>
+                                        1）乙方接到甲方通过电话、信函传真、电子邮件、网上提交等方式提出关于XX软件的服务请求后，在两个有效工作日内给予响应并提供服务。
+                                    </div>
+                                    <div>
+                                        2）乙方提供给甲方的服务，必须按照合同规定的服务内容进行。 三、甲方责任：
+                                    </div>
+                                    <div>
+                                        1.甲方应确保有专人对xx软件的使用和管理负责。
+                                    </div>
+                                    <div>
+                                        2.甲方应建立相关制度，以确保xx软件运行环境（包括计算机、打印机及相关硬件设备）
+                                    </div>
+                                    <div>
+                                        3.甲方定期做好系统数据备份，并对备份数据进行妥善保管。
+                                    </div>
+                                    <div>
+                                        4.甲方在应用过程中发现软件出现异常，应及时与甲方取得联系，并记录当前故障现象，便于乙方作出诊断。
+                                    </div>
+                                    <div>
+                                        5.甲方在乙方服务人员服务完成后，配合检查软件系统运行是否正常。 四、违约处理 1.乙方违争取处理：
+                                    </div>
+                                    <div>
+                                        1）甲方有权对乙方不履行合同条款的行为向XX公司服务管理部门投诉；XX公司服务投诉电话：XXXXXXXX
+                                    </div>
+                                    <div>
+                                        2）乙方违反以上服务承诺时，在接到甲方投诉后，维护部门立即采取补救措施，并给用户满意答复。
+                                    </div>
+                                    <div>
+                                        3）乙方在确认违反了服务承诺，并给甲方造成实际损失，应该给甲方以适当的经济补偿。 2.甲方违约处理
+                                    </div>
+                                    <div>
+                                        1）甲方没有按照合同要求履行甲方应承担的责任，甲方应该承担由此带来的相关后果。
+                                    </div>
+                                    <div>
+                                        2）因甲方法人员进行非法操作、感染病毒、配件出现故障导致的数据混乱、丢失等问题，甲方请求乙方提供服务的，乙方可以按照软件服务费的100%，加收服务费。
+                                    </div>
+                                    <div>
+                                        3.乙方免责条款
+                                    </div>
+                                    <div>
+                                        1）乙方不承担因甲方人员进行非法操作、感染病毒、硬件出现故障导致的数据混乱乱、丢失责任。
+                                    </div>
+                                    <div>
+                                        2）乙方有权拒绝甲方提出的合同规定之外的服务请求。 五、合同有效期和效用性
+                                    </div>
+                                    <div>
+                                        1.本合同须双方签字并加盖公章或合同章生效；本合同一式两份，双方各执一份，具有同等法律效力
+                                    </div>
+                                    <div>
+                                        2.本合同的有效性不因双方代表的职务变换、工作变更、工作调动等情况而受任何影响；本合同的有效性不因双方法人的变更而受任何影响；本合同的有效性不因双方单位名称的改变而受任何影响。
+                                    </div>
+                                    <div>
+                                        六、收费办法和合同期限 1.购买XX版、XX版）大写：_______________.
+                                    </div>
+                                    <div>
+                                        2.合同有效期限为一年，自___年__月__日至___年__月__日止，合同期满自动中止。
+                                    </div>
+                                    <div>
+                                        3.合同期满后，双方协商，乙方可以继续为甲方提供用友软件运行维护服务；但双方必须重新签署新的服务合同。
+                                    </div>
+                                    <div>
+                                        七、争议处理
+                                    </div>
+                                    <div>
+                                        1.甲乙双方如对协议条款规定的理解有异议，或者对与协议有关的事项发生争议，双方应本着友好合作的精神进行协商。
+                                    </div>
+                                    <div>
+                                        2.协商不能解决的，依照《中华人民共和国合同法》，任何一方可向乙方所在地的人民法院起诉。 八、其他
+                                    </div>
+                                    <div>
+                                        1.本合同未尽事宜，由甲乙双方协商后产生书面文件，作为本合同的补充条款，具备与本合同同等法律效力。
+                                    </div>
+                                    <div>
+                                        2.对本合同内容的任何修改和变更需要用书面形式，并经双方确认后生效。
+                                    </div>
+                                    <div>
+                                        3.本合同为双方唯一的正式协议，其他任何方案、口头说明及与本项目有关的信函、传真、邮件等，均以本合同为准。
+                                    </div>
+                                </div>
+                                </p>
+                                <p>
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+<!-- 底部 -->
+<footer class="L-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="footer_bottom">
+                    <span><a href="javascript:void(0)">关于我们</a>&nbsp;|&nbsp;</span>
+                    <span><a href="javascript:void(0)">产品服务</a>&nbsp;|&nbsp;</span>
+                    <span><a href="javascript:void(0)">商户中心</a>&nbsp;|&nbsp;</span>
+                    <span><a href="javascript:void(0)">渠道合作</a>&nbsp;|&nbsp;</span>
+                    <span><a href="javascript:void(0)">开发者</a>&nbsp;|&nbsp;</span>
+                    <span><a href="javascript:void(0)">联系我们</a></span>
+                    <p class="company">
+                        网站备案：闽ICP备13016059号-3&nbsp;&copy;&nbsp;增值电信业务经营许可证号：闽B2-20180167
+                    </p>
+                    <p>Copyright&nbsp;2016-2018&nbsp;&copy;&nbsp;www.qctpos.com&#x3000;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jquery-3.2.1 -->
+<script src="js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+<!-- bootstrap minified JavaScript -->
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="js/pubilc.js"></script> -->
+<script src="js/login.js"></script>
+</body>
+
+</html>
